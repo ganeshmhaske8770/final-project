@@ -20,12 +20,12 @@ const paymentRoutes = require("../routes/paymentRoutes");
 const donateRoutes = require("../routes/donationRoutes");
 const app = express();
 
+
+
 app.use(
   cors({
-    origin: (origin, callback) => {
-      callback(null, origin || true);  // allow all origins
-    },
-    credentials: true,
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 
