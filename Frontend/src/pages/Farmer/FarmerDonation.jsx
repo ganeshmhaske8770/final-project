@@ -46,7 +46,7 @@ const FarmerDonation = () => {
       const token = localStorage.getItem("token");
       if (!token) throw new Error("No token found");
 
-      await axios.post("http://localhost:5000/api/donation/submit", data, {
+      await axios.post("https://final-project-rtkg.onrender.com/api/donation/submit", data, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",

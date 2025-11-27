@@ -13,7 +13,7 @@ const FarmerDonationStatus = () => {
         const token = localStorage.getItem("token");
 
         const res = await axios.get(
-          "http://localhost:5000/api/donation/my-donations",
+          "https://final-project-rtkg.onrender.com/api/donation/my-donations",
           {
             headers: { Authorization: `Bearer ${token}` },
           }

@@ -15,7 +15,7 @@ const ViewPredictions = () => {
   const fetchPredictions = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/cropprediction", {
+      const res = await axios.get("https://final-project-rtkg.onrender.com/api/cropprediction", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setPredictions(res.data);
@@ -33,7 +33,7 @@ const ViewPredictions = () => {
     if (!window.confirm("Are you sure you want to delete this prediction?")) return;
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/cropprediction/${id}`, {
+      await axios.delete(`https://final-project-rtkg.onrender.com/api/cropprediction/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -62,7 +62,7 @@ const ViewPredictions = () => {
     try {
       const token = localStorage.getItem("token");
       await axios.put(
-        `http://localhost:5000/api/cropprediction/${editingPrediction._id}`,
+        `https://final-project-rtkg.onrender.com/api/cropprediction/${editingPrediction._id}`,
         editingPrediction,
         { headers: { Authorization: `Bearer ${token}` } }
       );

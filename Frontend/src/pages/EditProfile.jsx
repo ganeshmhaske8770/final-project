@@ -25,7 +25,7 @@ const EditProfile = () => {
     e.preventDefault();
     try {
       const res = await axios.put(
-        `http://localhost:5000/api/users/${user.id || user._id}`,
+        `https://final-project-rtkg.onrender.com/api/users/${user.id || user._id}`,
         formData,
         { headers: { Authorization: `Bearer ${token}` } }
       );

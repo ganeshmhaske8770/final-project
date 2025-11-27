@@ -70,7 +70,7 @@ const OrderOptions = ({ items, total, productId, quantity }) => {
         };
 
     try {
-      await axios.post('http://localhost:5000/api/orders', payload, {
+      await axios.post('https://final-project-rtkg.onrender.com/api/orders', payload, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success('Order placed successfully: Thanks', { duration: 1000 });
@@ -109,7 +109,7 @@ const OrderOptions = ({ items, total, productId, quantity }) => {
 
     try {
       // 1️⃣ Create Razorpay order
-      const res = await axios.post("http://localhost:5000/api/payment/create-order", payload, {
+      const res = await axios.post("https://final-project-rtkg.onrender.com/api/payment/create-order", payload, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -129,7 +129,7 @@ const OrderOptions = ({ items, total, productId, quantity }) => {
         handler: async (response) => {
           // 3️⃣ Verify payment
           try {
-            const verifyRes = await axios.post("http://localhost:5000/api/payment/verify-payment", {
+            const verifyRes = await axios.post("https://final-project-rtkg.onrender.com/api/payment/verify-payment", {
               razorpay_payment_id: response.razorpay_payment_id,
               razorpay_order_id: response.razorpay_order_id,
               razorpay_signature: response.razorpay_signature,

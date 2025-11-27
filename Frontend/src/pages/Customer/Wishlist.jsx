@@ -14,13 +14,13 @@ const Wishlist = () => {
   const [wishlist, setWishlist] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/wishlist', {
+    axios.get('https://final-project-rtkg.onrender.com/api/wishlist', {
       headers: { Authorization: `Bearer ${token}` },
     }).then(res => setWishlist(res.data.products));
   }, [token]);
 
   const removeFromWishlist = async (id) => {
-    await axios.post(`http://localhost:5000/api/wishlist/remove`, {
+    await axios.post(`https://final-project-rtkg.onrender.com/api/wishlist/remove`, {
       productId: id
     }, {
       headers: { Authorization: `Bearer ${token}` }

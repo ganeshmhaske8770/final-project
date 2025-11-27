@@ -13,7 +13,7 @@ const AdminDonationList = () => {
   const fetchDonations = async () => {
     setLoading(true);
     try {
-      const res = await axios.get("http://localhost:5000/api/donation", {
+      const res = await axios.get("https://final-project-rtkg.onrender.com/api/donation", {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setDonations(res.data);
@@ -33,7 +33,7 @@ const AdminDonationList = () => {
   const updateStatus = async (id, status) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/donation/${id}/status`,
+        `https://final-project-rtkg.onrender.com/api/donation/${id}/status`,
         { status },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
@@ -55,7 +55,7 @@ const AdminDonationList = () => {
   const markFundDistributed = async (id) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/donation/fund-distribute/${id}`,
+        `https://final-project-rtkg.onrender.com/api/donation/fund-distribute/${id}`,
         {},
         {
           headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },

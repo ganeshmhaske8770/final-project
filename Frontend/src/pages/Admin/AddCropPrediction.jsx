@@ -41,7 +41,7 @@ const AddPrediction = () => {
     e.preventDefault();
     try {
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:5000/api/cropprediction", formData, {
+      await axios.post("https://final-project-rtkg.onrender.com/api/cropprediction", formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       toast.success("Prediction added successfully!");

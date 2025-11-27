@@ -22,7 +22,7 @@ const MyProducts = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/products');
+      const res = await axios.get('https://final-project-rtkg.onrender.com/api/products');
       const userProducts = res.data.filter(p => p.farmerId === user?.id||user._id);
       setProducts(userProducts);
       setFiltered(userProducts);
@@ -53,7 +53,7 @@ const MyProducts = () => {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this product?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`, {
+      await axios.delete(`https://final-project-rtkg.onrender.com/api/products/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setProducts(products.filter(p => p._id !== id));
