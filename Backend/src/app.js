@@ -22,7 +22,9 @@ const app = express();
 
 app.use(
   cors({
-    origin: "*",
+    origin: (origin, callback) => {
+      callback(null, origin || true);  // allow all origins
+    },
     credentials: true,
   })
 );
