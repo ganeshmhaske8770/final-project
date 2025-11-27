@@ -25,11 +25,13 @@ const app = express();
 app.use(
   cors({
     origin: (origin, callback) => {
-      callback(null, origin);   // return the exact origin
+      callback(null, origin || "*");   // reflect the request origin
     },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   })
 );
+
 app.options("*", cors());
 
 app.use(express.json());
