@@ -22,7 +22,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://tubular-gnome-0ad17c.netlify.app/",
+    origin: "*",
     credentials: true,
   })
 );
