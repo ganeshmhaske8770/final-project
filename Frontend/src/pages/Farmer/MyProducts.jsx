@@ -22,7 +22,9 @@ const MyProducts = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('https://final-project-rtkg.onrender.com/api/products');
+      const res = await axios.get('https://final-project-rtkg.onrender.com/api/products',
+         { withCredentials: true } 
+      );
       const userProducts = res.data.filter(p => p.farmerId === user?.id||user._id);
       setProducts(userProducts);
       setFiltered(userProducts);
